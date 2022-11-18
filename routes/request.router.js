@@ -1,5 +1,5 @@
 const express = require('express');
-const Model = require('../models/Cart');
+const Model = require('../models/Request');
 const router = express.Router();
 
 const {
@@ -14,12 +14,9 @@ router.post(
   checkRole(["user", "admin", "superadmin"]),
   async (req, res) => {
   const data = new Model({
-      typerequest: req.body.typerequest,
-      dish: req.body.dish,
-      tablenumber: req.body.tablenumber,
-      paymenttype: req.body.paymenttype,
-      shiping: req.body.shiping,
-      totalValueCart: req.body.totalValueCart,
+      number: req.body.number,
+      client: req.body.client,
+      status: req.body.status
   })
 
   try {
@@ -38,7 +35,7 @@ router.get(
   checkRole(["user", "admin", "superadmin"]),
   async (req, res) => {
   try {
-      const data = await Model.find().populate('dish');
+      const data = await Model.find().populate('client');
       res.json(data)
   }
   catch (error) {
@@ -53,7 +50,7 @@ router.get(
   checkRole(["user", "admin", "superadmin"]),
   async (req, res) => {
   try {
-      const data = await Model.findById(req.params.id).populate('dish');
+      const data = await Model.findById(req.params.id).populate('client');
       res.json(data)
   }
   catch (error) {
