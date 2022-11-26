@@ -28,6 +28,7 @@ app.use("/api/cart", require("./routes/cart.router"));
 app.use("/api/prodCat", require("./routes/ProductCategorie.router"));
 app.use("/api/working", require("./routes/working.router"));
 app.use("/api/request", require("./routes/request.router"));
+app.use("/api/company", require("./routes/company.router"));
 
 const startApp = async () => {
   try {
