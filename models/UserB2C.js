@@ -23,6 +23,12 @@ const UserSchema = new Schema(
       default: "user",
       enum: ["user", "admin", "superadmin"]
     },
+    favorite: [
+      { 
+        type: Schema.Types.ObjectId, 
+        ref: 'favorite' 
+      }
+    ],
     address: [
       { 
         type: Schema.Types.ObjectId, 
