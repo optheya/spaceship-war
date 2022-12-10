@@ -48,7 +48,7 @@ router.get(
   checkRole(["user", "admin", "superadmin"]),
   async (req, res) => {
   try {
-      const data = await Model.find().populate.populate(['address', 'companyCategorie', 'working', 'productCategorie', 'request']);
+      const data = await Model.find().populate(['address', 'companyCategorie', 'working', 'productCategorie', 'request']);
       res.json(data)
   }
   catch (error) {
